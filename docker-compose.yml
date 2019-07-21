@@ -1,0 +1,13 @@
+version: '3'
+services:
+  test:
+    image: golang:1.12
+    volumes:
+      - .:/go/src/github.com/haiiro-shimeji/sam-go-sample
+    working_dir: /go/src/github.com/haiiro-shimeji/sam-go-sample
+    command:
+      - sh
+      - -c
+      - |
+        go get ./...
+        go test -v ./...
