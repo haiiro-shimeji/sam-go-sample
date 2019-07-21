@@ -8,6 +8,8 @@ import (
 
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
+
+	"github.com/haiiro-shimeji/sam-go-sample/somepkg"
 )
 
 var (
@@ -41,7 +43,7 @@ func handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRespo
 	}
 
 	return events.APIGatewayProxyResponse{
-		Body:       fmt.Sprintf("Hello, %v", string(ip)),
+		Body:       somepkg.Say(fmt.Sprintf("Hello, %v", string(ip))),
 		StatusCode: 200,
 	}, nil
 }
